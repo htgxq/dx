@@ -1,0 +1,400 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>芝麻收款码合并</title>
+    <meta name="keywords" content=微信支付宝二维码合并,微信支付宝二维码合一,微信支付宝收款二维码,	微信支付宝二维码整合,一码付,微信支付宝二维码,聚合支付/>
+    <meta name="description" content=微信支付宝二合一收款，将支付宝二维码和微信二维码合并为一个二维码，无需手续费，我们的远景：让二维码生成更简单。/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge"/>
+    <meta http-equiv="mobile-agent" content="format=xhtml; url=http://hotapp.cn" />
+    <meta http-equiv="mobile-agent" content="format=html5; url=http://hotapp.cn" />
+    <meta name="renderer" content="webkit">
+    <meta content="email=no" name="format-detection">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="csrf-token" content="C6HisonmDq9zp6oxoRbupCSgnOWWP7lYm13jS6Kq">
+    <meta name="user-type" content="1">
+    <link href="https://www.hotapp.cn/favicon.ico?v=20170313110248250" rel="shortcut icon" type="image/x-icon"/>
+    <link href="https://www.hotapp.cn/dist/jquery-weui/lib/weui.min.css?v=0" rel="stylesheet">
+    <link href="https://www.hotapp.cn/dist/main/css/paycode_wap/style.css?v=2018050401" rel="stylesheet">
+    <style type="text/css">
+html,body {
+    width: 100%;
+    height: 100%;
+}
+
+.w_warp {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+}
+
+.weixin_id {
+    font-size: 16px;
+    text-align: center;
+}
+
+.main-box {
+    padding: 0 15px;
+    margin-top: 30px;
+}
+
+.main-box .content {
+    justify-content: center;
+    align-items: center;
+}
+
+.main-box .arrow-box {
+    width: 35px;
+    padding: 0 10px;
+}
+
+.main-box .item img {
+    width: 100%;
+}
+.item-title{
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+#footer {
+    display: none;
+}
+.copy-btn{
+  position: fixed;
+  width: 140px;
+  height: 26px;
+  bottom: 15px;
+  left: 50%;
+  padding: 0;
+  margin: 0 0 0 -70px;
+  line-height: 26px;
+  text-align: center;
+  color: #333;
+  background: #fff;
+  border: 1px solid #333;
+  border-radius: 4px;
+  outline: none;
+}
+</style>
+</head>
+<body>
+<div class="weui-flex w_warp">
+    <div class="weui-flex__item">
+        <h3 class="weixin_id">请关注我们的微信公众号：<span id="zhima128">zhima128</span><br>可直接合并收款码！ </h3>
+        <div class="main-box">
+            <div class="weui-flex content">
+                <div class="weui-flex__item item">
+                    <p class="item-title">①点击芝麻收款</p>
+                    <img src="/dist/main/img/paycode_wap/weixin2017040501.jpg">
+                </div>
+                <div class="item arrow-box">
+                    <img src="/dist/main/img/paycode_wap/weixin2017040503.jpg">
+                </div>
+                <div class="weui-flex__item item">
+                    <p class="item-title">②点击免费合并</p>
+                    <img src="/dist/main/img/paycode_wap/weixin2017040502.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/libs/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	var clipboard = new Clipboard('.btn');
+	clipboard.on('success', function(e) {
+      alert('复制成功');
+  });
+</script>
+<footer id="footer">
+    <div class="weui-footer">
+        <p class="weui-footer__text footer__text"><a href="https://www.hotapp.cn/shouqian">技术支持：芝麻二维码</a></p>
+    </div>
+</footer>
+<!--注册-->
+<div class="page-warp"></div>
+<div class="log_and_reg_box" style="display: none;">
+    <div class="head">
+        <div class="tab-box">
+            <span class="tab active">注册</span><span class="tab">登录</span>
+        </div>
+        <div class="close" onclick="loginDialog('hide')"></div>
+    </div>
+    <div class="form-box" id="register-form">
+        <div class="form-item">
+            <div class="input-box">
+                <input class="weui-input tel" type="tel" placeholder="请输入手机号">
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="input-box">
+                <input class="weui-input password" type="password" placeholder="请输入密码">
+            </div>
+        </div>
+        <a class="weui-btn weui-btn_primary submit-btn" href="javascript:;" id="showTooltips">免费注册</a>
+    </div>
+    <div class="form-box" id="login-form" style="display: none;">
+        <div class="form-item">
+            <div class="input-box">
+                <input class="weui-input tel" type="tel" placeholder="请输入手机号">
+            </div>
+        </div>
+        <div class="form-item">
+            <div class="input-box">
+                <input class="weui-input password" type="password" placeholder="请输入密码">
+            </div>
+        </div>
+        <div class="form-bottom">
+            <a href="https://www.hotapp.cn/password/reset">忘记密码</a>
+        </div>
+        <a class="weui-btn weui-btn_primary submit-btn" href="javascript:;" id="showTooltips">登录</a>
+    </div>
+</div>
+
+<input type="hidden" name="is_login" id="is_login" value="" />
+<script src="https://www.hotapp.cn/dist/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://www.hotapp.cn/dist/jquery-weui/lib/weui.min.js?v=0" type="text/javascript" charset="utf-8"></script>
+<script src="https://www.hotapp.cn/dist/jquery/1.11.1/jquery.cookie.js"></script>
+<script src="https://www.hotapp.cn/js/baidu_statistics.js?v=20170410"></script>
+<script type="text/javascript">
+    // 切换登录注册
+    $('.log_and_reg_box .head .tab').on('click', function(){
+        var index = $(this).index();
+        $(this).addClass('active').siblings().removeClass('active');
+        $('.log_and_reg_box .form-box').eq(index).css('display', 'block').siblings('.form-box').css('display', 'none');
+    });
+    // 登录
+    $('#login-form .submit-btn').on('click', function () {
+        $btn = $(this);
+        var phone = $('#login-form .tel').val();
+        var password = $('#login-form .password').val();
+
+        if (phone == '') {
+            weui.alert('请填写手机号');
+            return false;
+        }
+        if (password == '') {
+            weui.alert('请填写密码');
+            return false;
+        }
+
+        var loading = weui.loading('loading', {
+            className: 'custom-classname'
+        });
+
+        $.ajax({
+            type: "post",
+            url: '/login',
+            dataType: 'json',
+            data: {
+                'username': phone,
+                'password': password,
+                '_token': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (res) {
+                loading.hide();
+                if (res.res == 0) {
+                    $('#is_login').val(1);
+                    loginDialog('hide');
+                    weui.toast('登录成功', 1000);
+                    window.location.href = window.location.href;
+                } else {
+                    weui.alert(res.msg);
+                }
+            },
+            error: function (err) {
+                loading.hide();
+                weui.alert('发生错误，请重试');
+            }
+        });
+    });
+
+    // 注册
+    $('#register-form .submit-btn').on('click', function () {
+        var $btn = $(this);
+        var phone = $('#register-form .tel').val();
+        var pw = $('#register-form .password').val();
+        var vcode = $('#register-form .vcode').val();
+        if (phone == '') {
+            weui.alert('请填写手机号');
+            return false;
+        }
+        if (!isMobile(phone)) {
+            weui.alert('手机号格式不正确');
+            return false;
+        }
+//      if (vcode == '') {
+//          weui.alert('请填写验证码');
+//          return false;
+//      }
+        if (pw == '') {
+            weui.alert('请填写密码');
+            return false;
+        }
+
+        var loading = weui.loading('loading', {
+            className: 'custom-classname'
+        });
+        $.ajax({
+            type: "post",
+            url: "https://www.hotapp.cn/mobileRegister",
+            dataType: 'json',
+            data: {
+                'user_name': phone,
+                'password': pw,
+                'usertype': 10,
+//              'verCode': vcode,
+                '_token': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (res) {
+                loading.hide();
+                if (res.res == 0) {
+                    loginDialog('hide');
+                    weui.toast('注册成功', 1000);
+                    $('#is_login').val(1);
+                    window.location.href = window.location.href;
+                } else {
+                    weui.alert(res.msg);
+                    refreshCaptcha();
+                }
+            },
+            error: function (err) {
+                loading.hide();
+                refreshCaptcha();
+                weui.alert('发生错误，请重试');
+            }
+        });
+    });
+    // 刷新图形验证码
+    var isGetVcode = false;
+    function refreshCaptcha() {
+        if(isGetVcode){
+            return false;
+        }
+        $('#captcha-img').attr('src', '/captcha/default?' + Math.random());
+        $('#captcha').val('');
+    }
+    // 发送验证码
+    $('#register-form .get-vcode').on('click', function () {
+        var phone = $('#register-form .tel').val();
+        var captcha = $('#captcha').val();
+        console.log(isGetVcode)
+        if(isGetVcode){
+            return false;
+            console.log(0);
+        }
+        if (phone == '') {
+            weui.alert('请填写手机号！')
+            return false;
+        }
+
+        if (!isMobile(phone)) {
+            weui.alert('手机号格式不正确！')
+            return false;
+        }
+        if (captcha == '') {
+            weui.alert('图形验证码不能为空');
+            return false;
+        }
+        isGetVcode = true;
+        $.ajax({
+            type: "post",
+            url: '/getVerifyCode',
+            dataType: 'json',
+            data: {
+                phone: phone,
+                captcha: captcha,
+                '_token': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (res) {
+                isGetVcode = false;
+                if (res.res == 0) {
+                    countDown();
+                } else {
+                    weui.alert(res.msg);
+                    refreshCaptcha();
+                }
+            },
+            error: function (err) {
+                isGetVcode = false;
+                refreshCaptcha();
+                weui.alert('发生错误，请重试');
+            }
+        });
+    });
+    // 验证码倒计时
+    function countDown() {
+        //等待60s在获取验证码
+        var timer;
+        var s = 60;
+        var $time = $('#register-form .vcode-time');
+        var $getVcode = $('#register-form .get-vcode');
+
+        $getVcode.hide();
+        $time.css('display', 'block');
+        $time.text(s + 's后重新获取');
+        timer = setInterval(function () {
+            if (s == 1) {
+                $getVcode.css('display', 'block').text('重新获取');
+                $time.hide();
+                clearInterval(timer);
+            } else {
+                s--;
+                $time.text(s + 's后重新获取');
+            }
+        }, 1000);
+    }
+    // 验证手机号码格式
+    function isMobile(str) {
+        var patrn = /^1[1|2|3|4|5|6|7|8|9][0-9]\d{8}$/;
+        return patrn.test(str);
+    }
+
+    function loginDialog(type) {
+        $('.page-warp').hide();
+        $('.log_and_reg_box').hide();
+
+        if (type == 'show') {
+            $('.page-warp').show();
+            $('.log_and_reg_box').show();
+        }
+
+        if (type == 'hide') {
+            $('.page-warp').hide();
+            $('.log_and_reg_box').hide();
+        }
+    }
+
+    // 退出登陆
+    function logout() {
+        $.ajax({
+            type: "get",
+            url: "/logout",
+            success: function () {
+                // 清空cookie
+                $.cookie('weixin_decode', '');
+                $.cookie('alipay_decode', '');
+                $.cookie('qqpay_decode', '');
+                $.cookie('payee_name', '');
+                $.cookie('access_key', '');
+                $.cookie('weixin_logo', '');
+                window.location.href = window.location.href;
+            },
+            error: function(err){
+                weui.alert('发生错误，请刷新后重试');
+            }
+        });
+    }
+    $('.page-warp').on('click', function () {
+        $('.page-warp').hide();
+        $('#register-form').hide();
+        $('#login-form').hide();
+    });
+</script>
+</body>
+</html>
